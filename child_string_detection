@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Oct 23 11:33:56 2018
+
+@author: natalie
+"""
+
+#A string is said to be a child of a another string if it can be formed by deleting 0 
+#or more characters from the other string. Given two strings of equal length, 
+#what's the longest string that can be constructed such that it is a child of both?
+
+#For example, ABCD and ABDC have two children with maximum length 3, ABC and ABD. 
+#They can be formed by eliminating either the D or C from both strings. Note that we will not consider ABCD as a common child because we can't rearrange characters and ABCD  ABDC.
+
+#Function Description
+
+#Complete the commonChild function in the editor below. It should return the longest string which is a common child of the input strings.
+
+#commonChild has the following parameter(s):
+
+#s1, s2: two equal length strings
+#Input Format
+
+#There is one line with two space-separated strings,  and .
+
+#Constraints
+
+#All characters are upper case in the range ascii[A-Z].
+#Output Format
+
+#Print the length of the longest string , such that  is a child of both  and .
+
+#Sample Input
+
+#HARRY
+#SALLY
+#Sample Output
+
+ #2
+ 
+ 
+def findchild(input1, input2):
+     match1=[] #will add in matching letters
+     match_strings=[]
+     string_lengths=[]
+     for i in range(len(input1)):
+         if input1[i] in input2:
+             match1.append(input1[i])
+             match1string=''.join(match1)     
+     for i in range(len(match1string)):
+         for j in range(len(match1string)):
+             string1=match1string[i:j]
+             if string1 in input2:
+                 string_lengths.append(len(string1))
+         maxstring=max(string_lengths)
+     return(match1, maxstring)
+             
+     
+     
+     
